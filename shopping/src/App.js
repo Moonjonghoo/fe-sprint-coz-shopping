@@ -1,12 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import { Route,Routes,Link } from 'react-router-dom';
+import { Route,Routes} from 'react-router-dom';
+
+import Main from './page/Main';
 
 function App() {
   return (
     <div className="App">
+     
       <Routes>
-        <Route path="/" element={<div>메인페이지임</div>}></Route>
+        <Route path="/" element={<Main></Main>}></Route>
       </Routes>
       
     </div>
@@ -14,3 +16,6 @@ function App() {
 }
 
 export default App;
+
+
+
