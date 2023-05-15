@@ -28,6 +28,7 @@ function List() {
     }
     return (
         <div className='mainlist'>
+            {console.log(data)}
             <h4>상품리스트</h4>
             <ul className='itemlist'>
                 {data.map(item => (
