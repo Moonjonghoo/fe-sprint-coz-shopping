@@ -1,6 +1,7 @@
 import './List.css'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Item from './Item';
 
 
 function List() {
@@ -10,7 +11,7 @@ function List() {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get('http://cozshopping.codestates-seb.link/api/v1/products?count=');
+                const response = await axios.get('http://cozshopping.codestates-seb.link/api/v1/products?count=4');
                 setData(response.data);
             } catch (error) {
                 console.error(error);
@@ -23,16 +24,18 @@ function List() {
 
     if (isLoading) {
         return <div>Loading...</div>;
-        
+
     }
     return (
-        <div>
-            <button onClick={()=>(console.log(data))}></button>
-            <ul>
+        <div className='mainlist'>
+            <h4>상품리스트</h4>
+            <ul className='itemlist'>
                 {data.map(item => (
-                    <li key={item.id}>{item.title}</li>
+                    <Item {...item}></Item>
                 ))}
+
             </ul>
+            
         </div>
     );
 }

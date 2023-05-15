@@ -1,0 +1,21 @@
+.image{
+    width:415px;
+    height:300px;
+    border-radius: 10px;
+    
+}
+
+.first-line{
+    display:flex;
+    justify-content: space-between;
+}
+
+.price{
+    float:right;}
+
+
+
+
+
+
+
