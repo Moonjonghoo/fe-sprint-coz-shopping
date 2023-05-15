@@ -1,16 +1,75 @@
-.navbar{
-    display:flex;
-    justify-content: space-between;
-    font-size: 25px;
-    padding:10px;
-    margin-left:10px;
+.header{
+    position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  z-index: 999; /* 다른 요소들보다 높은 z-index 값을 설정하여 상위에 표시될 수 있도록 함 */
+  /* 이하 필요한 스타일 속성 추가 */
 }
 
-.menu{
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    padding: 10px;
+    margin-left: 10px;
+
+}
+
+.menu {
     margin-right: 30px;
 }
 
-.line{
-    margin-top:-10px;
-    
+.line {
+    margin-top: -10px;
+
+}
+
+.modal {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    margin-left: 1650px;
+    width: 170px;
+    height: 130px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+.hamburger {
+    display: inline-block;
+    cursor: pointer;
+    padding: 15px;
+    position: relative;
+    user-select: none;
+}
+
+.hamburger span {
+    display: block;
+    background-color: #333;
+    height: 3px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+}
+
+.hamburger span:first-child {
+    top: 10%;
+}
+
+.hamburger span:last-child {
+    top: 90%;
+}
+
+.content {
+
+    margin-left: 10px;
+
 }
