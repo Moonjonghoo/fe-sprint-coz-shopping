@@ -5,11 +5,13 @@ import Header from './component/Header';
 import Main from './page/Main';
 import Bookmark from './page/Bookmark';
 import Product from './page/Product';
+import Footer from './component/footer';
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
+      
      
       <Routes>
         <Route path="/" element={<Main></Main>}></Route>
@@ -17,7 +19,7 @@ function App() {
         <Route path='/bookmark' element={<Bookmark></Bookmark>}></Route>
         
       </Routes>
-      
+      <Footer></Footer>
     </div>
   );
 }

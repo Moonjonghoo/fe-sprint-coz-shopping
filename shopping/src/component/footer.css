@@ -1,0 +1,22 @@
+.first {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top:1px solid rgba(189, 189, 189, 0.5);
+    
+  }
+
+  .line-footer {
+    height: 20px;
+    width: 1px;
+    border-left: 1px solid black;
+    margin: 0 20px;
+    display: inline-block;
+    vertical-align: middle;
+    
+  }
+
+  .second{
+    margin-top:-10px;
+    text-align: center;
+  }
