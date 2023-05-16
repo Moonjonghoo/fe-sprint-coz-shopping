@@ -7,6 +7,7 @@ import Bookmark from './page/Bookmark';
 import Product from './page/Product';
 import Footer from './component/footer';
 import Item from './component/Item';
+import { useState } from 'react';
 
 function App() {
   return (
