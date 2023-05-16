@@ -1,0 +1,13 @@
+.itemlist{
+    display:flex;
+    gap: 24px;
+    margin-left:-20px;
+    
+    
+}
+
+.mainlist{
+    padding:10px;
+    margin-left:20px;
+    margin-top:-20px;
+}

@@ -1,22 +1,7 @@
-import './Bookmark.css'
-import { useState } from 'react';
+import './filter.css'
 
-function Bookmark() {
-    return (
-        <div>
-            <Filter></Filter>
-        </div>
-      );
-}
 
-export default Bookmark;
-
-function Filter() {
-    const [전체, set전체] = useState(false);
-  const [상품, set상품] = useState(false);
-  const [카테고리, set카테고리] = useState(false);
-  const [기획전, set기획전] = useState(false);
-  const [브랜드, set브랜드] = useState(false);
+function Filter({ 전체, set전체, 상품, set상품, 카테고리, set카테고리, 기획전, set기획전, 브랜드, set브랜드 }) {
     
 
     const stateClickhandler = (stateSetter) => () => {
@@ -56,3 +41,25 @@ function Filter() {
         </div>
       );
 }
+
+export default Filter;
+
+//클릭시 ->focus느낌으로 글씨색깔바뀌고 밑줄효과발생되며
+//근데 다른거누르면 다른거만눌려야됨(원래눌럿던건삭제)
+//css요소
+
+//코드
+// 클릭이된것에따라 api호출이되야됨.
+//일단 페이지로드되면 api call통해서 100개데이터 한방에받기
+//그러면 그데이터를 state에 저장함
+//그리고 클릭하면 그데이터를 필터링해서 map을통해 보여주자.
+//삼항연산자 눌린거안눌린거 상태관리를 어캐하냐
+
+// 방법1
+// 전체 f 상품 f 카테고리 f 기획전 f 브랜드 f
+// 5가지상태중 true값을 가질수있는것은 하나이다.
+// 해당클릭시 무조건 true로바꿔줌(+css)
+
+//이상태에따라 데이터 필터링해서보여줄꺼임.
+
+
