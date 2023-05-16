@@ -48,13 +48,14 @@ function Item(props) {
         <div className="item-title">
           {props.type === 'Brand' ? props.brand_name : props.type === 'Category' ? '#' + props.title : props.title}
         </div>
-        <div>
+        <div className='right-elemnt'>
+        
           {props.type === 'Product' ? props.discountPercentage + '%' : null}
           {props.type === 'Brand' ? '관심고객수' : null}
         </div>
       </div>
       <div className="price">{props.price || props.follower}</div>
-      <div style={{ clear: 'both' }}></div>
+      
       <div>{props.sub_title}</div>
     </div>
   );

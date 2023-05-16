@@ -13,7 +13,7 @@ function Header() {
   return (
     <div className='header'>
       <div className='navbar'>
-        <img src="logo.png" alt='logo' onClick={()=>(navigate('/'))}></img>
+        <img src="logo11.png" alt='logo' onClick={()=>(navigate('/'))}></img>
         <div className='logo'>Cmarket shooping</div>
         <div className='menu' onClick={handleClick}><Hamburger></Hamburger></div>
       </div>
