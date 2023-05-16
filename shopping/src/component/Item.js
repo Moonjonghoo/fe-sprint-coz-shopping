@@ -1,19 +1,18 @@
 import React from 'react';
 import './Item.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { changeState } from '../store';
 
 function Item(props) {
   const { id } = props;
-  const bookmark = useSelector((state) => state.bookmark[id]);
-  const dispatch = useDispatch();
+
 
   const handleBookmark = () => {
-    dispatch(changeState({ itemId: id }));
+    
 
     const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
 
-    if (bookmark) {
+    const existingItem = bookmarkedItems.find((item) => item.id === id); // 이미 추가된 아이템인지 확인
+
+    if (existingItem) {
       const updatedItems = bookmarkedItems.filter((item) => item.id !== id);
       localStorage.setItem('bookmarkedItems', JSON.stringify(updatedItems));
       console.log('제거되었습니다.');
@@ -43,7 +42,7 @@ function Item(props) {
           <img className="image" src={props.image_url || props.brand_image_url} alt="대체이미지" />
         </div>
         <div className="bookmark-wrapper">
-          <button className={`bookmark-button${bookmark ? ' bookmarked' : ''}`} onClick={handleBookmark}>
+          <button className='bookmark-button' onClick={handleBookmark}>
             <i className="fas fa-star"></i>
           </button>
         </div>
@@ -64,7 +63,6 @@ function Item(props) {
 }
 
 export default Item;
-
 
 
 
