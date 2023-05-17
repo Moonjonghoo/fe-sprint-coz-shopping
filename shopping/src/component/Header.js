@@ -18,7 +18,7 @@ function Header() {
         <div className='menu' onClick={handleClick}><Hamburger></Hamburger></div>
       </div>
       <div className='line' style={{ zIndex: 1 }}><HorizonLine /></div>
-      {showModal && <div className='modal' onClick={handleClick}><Modalcontent></Modalcontent></div>}
+      {showModal && <div className='modal1' onClick={handleClick}><Modalcontent></Modalcontent></div>}
     </div>
   );
 }

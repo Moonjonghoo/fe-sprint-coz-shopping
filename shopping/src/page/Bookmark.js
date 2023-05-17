@@ -31,13 +31,13 @@ function Bookmark() {
     
   
     useEffect(() => {
-      if (type==='product') {
+      if (type==='Product') {
         setFilteredRandomData('Product');
-      } else if (type==='category') {
+      } else if (type==='Category') {
         setFilteredRandomData('Category');
-      } else if (type==='exhibition') {
+      } else if (type==='Exhibition') {
         setFilteredRandomData('Exhibition');
-      } else if (type==='brand') {
+      } else if (type==='Brand') {
         setFilteredRandomData('Brand');
       } else {
         // 전체일 때는 모든 북마크 아이템을 보여줌

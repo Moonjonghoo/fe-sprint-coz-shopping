@@ -2,19 +2,22 @@ import React from 'react';
 import './Item.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { addToBookmark, removeFromBookmark } from '../store';
+import { useState } from 'react';
 
 function Item(props) {
   const { id } = props;
   const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
-
+   const [modalOpen, setModalOpen] = useState(false);
+  const [clickedImage, setClickedImage] = useState('');
   const existingItem = bookmarkedItems.find((item) => item.id === id);
   const bookmark = useSelector((state) => state.bookmark);
   const dispatch = useDispatch();
-
-  const handleBookmark = () => {
+  console.log(bookmark)
+ const handleBookmark = () => {
     const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
     const existingItem = bookmarkedItems.find((item) => item.id === id); // 이미 추가된 아이템인지 확인
-
+ 
+ 
     if (existingItem) {
       const updatedItems = bookmarkedItems.filter((item) => item.id !== id);
       localStorage.setItem('bookmarkedItems', JSON.stringify(updatedItems));
@@ -39,15 +42,24 @@ function Item(props) {
       console.log('추가되었습니다.');
     }
   };
+  const handleImageClick = (imageUrl) => {
+    setModalOpen(!modalOpen);
+    setClickedImage(imageUrl);
+  };
 
   return (
     <div className="item">
       <div className="whole-wrapper">
         <div className="image-wrapper">
-          <img className="image" src={props.image_url || props.brand_image_url} alt="대체이미지" />
+        <img
+            className="image"
+            src={props.image_url || props.brand_image_url}
+            alt="대체이미지"
+            onClick={() => handleImageClick(props.image_url || props.brand_image_url)}
+          />
         </div>
         <div className="bookmark-wrapper">
-          <button className="bookmark-button" onClick={handleBookmark}>
+          <button className="bookmark-button" onClick={handleBookmark} >
             <i className={`fas fa-star ${existingItem ? 'custom-star' : ''}`}></i>
           </button>
         </div>
@@ -67,6 +79,14 @@ function Item(props) {
       </div>
       <div className="price">{props.price || props.follower}</div>
       <div>{props.sub_title}</div>
+       {modalOpen && (
+        <div className="modal">
+          <img className="modal-image" src={clickedImage} alt="큰이미지" onClick={handleImageClick}/>
+          <button className="modal-bookmark-button" onClick={handleBookmark}>
+            <i className={`fas fa-star ${existingItem ? 'custom-star' : ''}`}></i>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
