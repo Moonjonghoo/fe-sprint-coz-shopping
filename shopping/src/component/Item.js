@@ -3,6 +3,11 @@ import './Item.css';
 
 function Item(props) {
   const { id } = props;
+  const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
+
+  const existingItem = bookmarkedItems.find((item) => item.id === id);
+  
+  
 
 
   const handleBookmark = () => {
@@ -41,9 +46,9 @@ function Item(props) {
         <div className="image-wrapper">
           <img className="image" src={props.image_url || props.brand_image_url} alt="대체이미지" />
         </div>
-        <div className="bookmark-wrapper">
+        <div className="bookmark-wrapper"> 
           <button className='bookmark-button' onClick={handleBookmark}>
-            <i className="fas fa-star"></i>
+          <i className={`fas fa-star ${ existingItem? 'custom-star' : ''}`}></i>
           </button>
         </div>
       </div>
