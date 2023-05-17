@@ -1,25 +1,24 @@
 import React from 'react';
 import './Item.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToBookmark, removeFromBookmark } from '../store';
 
 function Item(props) {
   const { id } = props;
   const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
 
   const existingItem = bookmarkedItems.find((item) => item.id === id);
-  
-  
-
+  const bookmark = useSelector((state) => state.bookmark);
+  const dispatch = useDispatch();
 
   const handleBookmark = () => {
-    
-
     const bookmarkedItems = JSON.parse(localStorage.getItem('bookmarkedItems')) || [];
-
     const existingItem = bookmarkedItems.find((item) => item.id === id); // 이미 추가된 아이템인지 확인
 
     if (existingItem) {
       const updatedItems = bookmarkedItems.filter((item) => item.id !== id);
       localStorage.setItem('bookmarkedItems', JSON.stringify(updatedItems));
+      dispatch(removeFromBookmark(id));
       console.log('제거되었습니다.');
     } else {
       const newItem = {
@@ -36,6 +35,7 @@ function Item(props) {
       };
       bookmarkedItems.push(newItem);
       localStorage.setItem('bookmarkedItems', JSON.stringify(bookmarkedItems));
+      dispatch(addToBookmark(newItem));
       console.log('추가되었습니다.');
     }
   };
@@ -46,15 +46,19 @@ function Item(props) {
         <div className="image-wrapper">
           <img className="image" src={props.image_url || props.brand_image_url} alt="대체이미지" />
         </div>
-        <div className="bookmark-wrapper"> 
-          <button className='bookmark-button' onClick={handleBookmark}>
-          <i className={`fas fa-star ${ existingItem? 'custom-star' : ''}`}></i>
+        <div className="bookmark-wrapper">
+          <button className="bookmark-button" onClick={handleBookmark}>
+            <i className={`fas fa-star ${existingItem ? 'custom-star' : ''}`}></i>
           </button>
         </div>
       </div>
       <div className="first-line">
         <div className="item-title">
-          {props.type === 'Brand' ? props.brand_name : props.type === 'Category' ? '#' + props.title : props.title}
+          {props.type === 'Brand'
+            ? props.brand_name
+            : props.type === 'Category'
+            ? '#' + props.title
+            : props.title}
         </div>
         <div className="right-elemnt">
           {props.type === 'Product' ? props.discountPercentage + '%' : null}
@@ -68,6 +72,3 @@ function Item(props) {
 }
 
 export default Item;
-
-
-

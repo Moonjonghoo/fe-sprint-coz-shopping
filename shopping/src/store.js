@@ -1,20 +1,24 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-let bookmark = createSlice({
+const bookmarkSlice = createSlice({
   name: 'bookmark',
-  initialState: {},
+  initialState: [],
   reducers: {
-    changeState(state, action) {
-      const { itemId } = action.payload;
-      state[itemId] = !state[itemId];
+    addToBookmark: (state, action) => {
+      state.push(action.payload);
+    },
+    removeFromBookmark: (state, action) => {
+      return state.filter((item) => item.id !== action.payload);
     },
   },
 });
 
-export default configureStore({
+export const { addToBookmark, removeFromBookmark } = bookmarkSlice.actions;
+
+const store = configureStore({
   reducer: {
-    bookmark: bookmark.reducer,
+    bookmark: bookmarkSlice.reducer,
   },
 });
 
-export const { changeState } = bookmark.actions;
+export default store;
