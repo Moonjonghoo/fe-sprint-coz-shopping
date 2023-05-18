@@ -22,6 +22,7 @@ function Item(props) {
       const updatedItems = bookmarkedItems.filter((item) => item.id !== id);
       localStorage.setItem('bookmarkedItems', JSON.stringify(updatedItems));
       dispatch(removeFromBookmark(id));
+      
       console.log('제거되었습니다.');
     } else {
       const newItem = {
@@ -39,6 +40,7 @@ function Item(props) {
       bookmarkedItems.push(newItem);
       localStorage.setItem('bookmarkedItems', JSON.stringify(bookmarkedItems));
       dispatch(addToBookmark(newItem));
+      
       console.log('추가되었습니다.');
     }
   };
@@ -49,6 +51,7 @@ function Item(props) {
 
   return (
     <div className="item">
+      <div className='backdrop'></div>
       <div className="whole-wrapper">
         <div className="image-wrapper">
         <img

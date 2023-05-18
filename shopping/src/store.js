@@ -1,5 +1,7 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+
+
 const bookmarkSlice = createSlice({
   name: 'bookmark',
   initialState: [],
@@ -28,10 +30,11 @@ export const { addToBookmark, removeFromBookmark } = bookmarkSlice.actions;
 const store = configureStore({
   reducer: {
     bookmark: bookmarkSlice.reducer,
-    bookmarkItem:bookmarkItem.reducer
+    bookmarkItem:bookmarkItem.reducer,
+    
   },
 });
 
+export const {removeItem} =bookmarkItem.actions
 export default store;
 
-export const {removeItem} =bookmarkItem.actions

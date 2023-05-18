@@ -1,43 +1,32 @@
 import React from 'react';
 import './filter.css';
 
+const filterItems = [
+  { type: null, label: '전체', imgSrc: '/전체.png' },
+  { type: 'Product', label: '상품', imgSrc: '/상품.png' },
+  { type: 'Category', label: '카테고리', imgSrc: '/카테고리.png' },
+  { type: 'Exhibition', label: '기획전', imgSrc: '/기획전.png' },
+  { type: 'Brand', label: '브랜드', imgSrc: '/브랜드.png' },
+];
+
 function Filter({ type, setType }) {
-  const stateClickhandler = (selectedType) => {
+  const stateClickHandler = (selectedType) => {
     setType(selectedType);
   };
 
   return (
     <div className="Filter">
-      <div className="Filter__list">
-        <img src={process.env.PUBLIC_URL + '/전체.png'} alt="전체" />
-        <div className={type === null ? 'Filter__discription' : null} onClick={() => stateClickhandler(null)}>
-          전체
+      {filterItems.map((item) => (
+        <div className="Filter__list" key={item.type}>
+          <img src={process.env.PUBLIC_URL + item.imgSrc} alt={item.label} />
+          <div
+            className={type === item.type ? 'Filter__description' : ''}
+            onClick={() => stateClickHandler(item.type)}
+          >
+            {item.label}
+          </div>
         </div>
-      </div>
-      <div className="Filter__list">
-        <img src={process.env.PUBLIC_URL + '/상품.png'} alt="상품" />
-        <div className={type === 'Product' ? 'Filter__discription' : null} onClick={() => stateClickhandler('Product')}>
-          상품
-        </div>
-      </div>
-      <div className="Filter__list">
-        <img src={process.env.PUBLIC_URL + '/카테고리.png'} alt="카테고리" />
-        <div className={type === 'Category' ? 'Filter__discription' : null} onClick={() => stateClickhandler('Category')}>
-          카테고리
-        </div>
-      </div>
-      <div className="Filter__list">
-        <img src={process.env.PUBLIC_URL + '/기획전.png'} alt="기획전" />
-        <div className={type === 'Exhibition' ? 'Filter__discription' : null} onClick={() => stateClickhandler('Exhibition')}>
-          기획전
-        </div>
-      </div>
-      <div className="Filter__list">
-        <img src={process.env.PUBLIC_URL + '/브랜드.png'} alt="브랜드" />
-        <div className={type === 'Brand' ? 'Filter__discription' : null} onClick={() => stateClickhandler('Brand')}>
-          브랜드
-        </div>
-      </div>
+      ))}
     </div>
   );
 }
