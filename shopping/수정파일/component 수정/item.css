@@ -1,0 +1,18 @@
+.main-list{
+    padding:20px;
+}
+
+.item-data{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: 20px 20px;
+}
+.item-image{
+    width:400px;
+    height:300px;
+}
+
+.left{
+    justify-self: flex-end;
+}
+

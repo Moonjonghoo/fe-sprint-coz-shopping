@@ -1,0 +1,9 @@
+footer{
+    text-align: center;
+    color:rgb(161, 161, 161);
+    border-top:1px solid rgba(88, 88, 88, 0.5);
+}
+
+.footer-line{
+    margin-top:-10px;
+}

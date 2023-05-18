@@ -1,5 +1,29 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
+const bookmarkModal = createSlice({
+  name: 'bookmarkModal',
+  initialState: null,
+  reducers: {
+    addModal(state, action) {
+      // 상태를 true로 설정
+      state = true;
+
+      // 1초마다 상태를 천천히 null로 변경
+      
+    },
+    removeModal(state, action) {
+      // 상태를 false로 설정
+      state = false;
+
+      
+    }
+  }
+});
+
+export const { addModal, removeModal } = bookmarkModal.actions;
+
+
+
 
 
 const bookmarkSlice = createSlice({
@@ -31,10 +55,10 @@ const store = configureStore({
   reducer: {
     bookmark: bookmarkSlice.reducer,
     bookmarkItem:bookmarkItem.reducer,
-    
+    bookmarkModal:bookmarkModal.reducer
   },
 });
 
-export const {removeItem} =bookmarkItem.actions
 export default store;
 
+export const {removeItem} =bookmarkItem.actions
