@@ -6,11 +6,21 @@ import Main from './page/Main';
 import Bookmark from './page/Bookmark';
 import Product from './page/Product';
 import Footer from './component/footer';
-import Item from './component/Item';
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
+
+
 
 function App() {
+  let a =useSelector((state)=>{return state.bookmark})
+  console.log(a)
+
+ 
+  
+  
+ 
+  
   return (
+    
     <div className="App">
       <Header></Header>
 
@@ -22,7 +32,10 @@ function App() {
         <Route path='/bookmark' element={<Bookmark></Bookmark>}></Route>
         
       </Routes>
-      <Footer></Footer>
+       
+      <Footer label='개인정보 처리방침 | 이용 약관'
+        copyright='All rights reserved @ Codestates'></Footer>
+     
     </div>
   );
 }

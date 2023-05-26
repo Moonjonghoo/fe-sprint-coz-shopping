@@ -47,13 +47,12 @@
   top:50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: 400;
   background-color: rgba(170, 5, 5, 0.5); /* 투명한 검은색 배경 */
   display: flex;
   align-items: center;
   justify-content: center;
- width: 800px;
-  height: 600px;
+  
   
 }
 
@@ -71,6 +70,8 @@
   color: white;
   font-size: 50px;
 }
+
+
 
 
   

@@ -8,6 +8,17 @@
   /* 이하 필요한 스타일 속성 추가 */
 }
 
+.navbar img{
+    width: 100px;
+    height :80px;
+    margin-top:-20px;;
+    cursor: pointer;
+}
+
+.logo{
+    margin:auto;
+}
+
 
 .navbar {
     display: flex;
@@ -73,3 +84,4 @@
     margin-left: 10px;
 
 }
+

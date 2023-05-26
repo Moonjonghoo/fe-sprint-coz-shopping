@@ -1,3 +1,13 @@
 .App{
     width:1760.690px;
+    
+}
+
+.bookmark-add{
+    position:fixed;
+    right:300px;
+    border-radius: 10px;
+    border:1px solid black;
+    padding:10px;
+    
 }
