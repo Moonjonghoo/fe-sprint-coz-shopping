@@ -1,0 +1,19 @@
+.hamburger{
+    width:30px;
+    margin-top:5px;
+    border:1px solid black;
+}
+
+.hamburger-menu{
+    align-self: center;
+    cursor: pointer;
+    
+}
+
+.hamburger-content{
+    position: fixed;
+     border:1px black solid;
+     border-radius: 10px;;
+     padding:3px;
+     
+ }

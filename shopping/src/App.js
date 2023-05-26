@@ -33,7 +33,8 @@ function App() {
         
       </Routes>
        
-      <Footer></Footer>
+      <Footer label='개인정보 처리방침 | 이용 약관'
+        copyright='All rights reserved @ Codestates'></Footer>
      
     </div>
   );
